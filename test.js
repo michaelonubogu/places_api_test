@@ -2,7 +2,7 @@
     $(document).ready(function(){
         /*--------- test ---------------------------------------*/
         var map;
-        var pyrmont = {lat: -33.867, lng: 151.195};
+        var pyrmont = {lat:33.752504, lng:-84.388846};
         var fakemap = document.createElement("div");
         
         map = new google.maps.Map(fakemap, {
@@ -14,10 +14,13 @@
         
         service.nearbySearch({
             location: pyrmont,
-            radius: 500,
+            radius: 20000,
             types: ['store']
         }, function(results, status){
             console.log(results);
+            var lat = results[0].geometry.location.lat();
+            
+            alert(lat);
         });
         /*-----------------------------------------------------*/
         
